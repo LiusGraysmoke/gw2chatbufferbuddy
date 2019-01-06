@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Guild Wars 2 Chat Buffer Buddy</title>
+<link rel='stylesheet' id='reset-css'  href='theme/reset.css' type='text/css' media='all' />
 <link rel='stylesheet' id='gw2-css'  href='theme/gw2theme.css' type='text/css' media='all' />
 </head>
 <body>
@@ -18,8 +19,8 @@ function copyToClipboard(textID) {
 <center>
 <h1 style='color:#ffffff;'>
 <table><tr>
-<td><img src="theme/media/gw2.png" alt="Guild Wars 2 "></td>
-<td style='vertical-align:top;'>Chat Buffer Buddy</td>
+<td align='center'><img src="theme/media/gw2.png" alt="Guild Wars 2 " width="80%" height="80%"></td>
+<td> Chat Buffer Buddy</td>
 <tr></table>
 </h1>
 </center>
@@ -32,15 +33,16 @@ function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 	echo "<textarea name='chat' rows='10' cols='100'>";
 	echo $chatBuffer;
 	echo "</textarea>";
-	echo "<br><br>";
-	echo "<label>Continue Marker: <select name='continue'>";
+	echo "<br>";
+	echo "<table><tr>";
+	echo "<td style='padding: 20px;'><label>Continue Marker: <select name='continue'>";
 	foreach ($continueOpt as $opt) {
 		echo "<option value='" . $opt . "'";
 		if ($opt == $continueChar) echo " selected='selected'";
 		echo ">" . $opt . "</option>";
 	}
 	echo "</select></label><br><br>";
-	echo "Include Continue Marker at Start of New Line: ";
+	echo "Continue Marker at Start of New Line: ";
 	echo "<input type='radio' name='start' value='yes'";
 	if ($startFlag == 'yes') {
 		echo " checked";
@@ -61,8 +63,9 @@ function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 	if ($format == 'Say') {
 		echo " checked";
 	}
-	echo "> Say/Party <br><br>";
-	echo "<input type='submit' name='submit' value='Submit'>";
+	echo "> Say/Party</td>";
+	echo "<td align='center' style='padding: 20px;'><input type='submit' name='submit' value='Submit'></td>";
+	echo "<tr></table>";
 	echo "</form><br>";
 	echo "</center>";
 }
@@ -73,7 +76,7 @@ function printOutputBlock( $text, $num ) {
 	echo "<textarea id='post$num' rows='2' cols='100' readonly>";
 	echo $text;
 	echo "</textarea></td>";
-	echo "<td><input type='button' style='vertical-align:middle;' name='copy$num' value='Copy to Clipboard' onclick='copyToClipboard(\"post$num\")'>";
+	echo "<td align='center' style='padding: 10px;'><input type='button' name='copy$num' value='Copy to Clipboard' onclick='copyToClipboard(\"post$num\")'>";
 	echo "</td></tr>";
 }
 
