@@ -4,10 +4,13 @@ The purpose of this tool is to provide a lightweight means of converting large b
 
 ## Options
 - *Continue Marker:* The character that will appear at the end of every post if another is to follow it,
-- *Include Continue Marker at Start of New Line:* Choose whether or not to include the continue marker at the start of every new line as well.
+- *Continue Marker at Start of New Line:* Choose whether or not to include the continue marker at the start of every new line as well.
 - *Post Format:*
   - Emote - Will Include /e at the beginning of each new line
   - Say/Party - Will not enter any additional characters at the start of a new line
+
+## Features
+You can manually force a new line by adding your Continue Marker of choice into the chat window. This was largely included for readability reasons when the program cuts off posts in awkward locations, like near transitions between action and speech. A manual continue will be ignored if it's within 25 characters of an existing break in the posts, whether manual or automated. (NOTE: If you utilize - as your continue marker AND as emphasis around words in your posts, this will cause unintended behavior.)
 
 ## Notes
 Personal Disclaimer: I'm a system administrator, not a web developer. I did the best I could with the knowledge I have. That said, pull requests from people more knowledgeable than me in HTML, PHP, and CSS are more than welcome!
