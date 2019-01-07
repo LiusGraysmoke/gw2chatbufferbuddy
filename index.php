@@ -124,25 +124,24 @@ if ($action == 'Submit') {
 	echo "<table>";
 	while ($length > $bufferSize) {
 		$workingString = substr($workingBuffer,0,$bufferSize);
-		$manualCont = strpos($workingString, $continueChar, 25);
+		$continue = strpos($workingString, $continueChar, 25);
 		
 		# Allow a manual continue.
 		# Otherwise put continue marker after the last space in workingString.
-		if ($manualCont != false ) {
-			$workingString = substr($workingString,0,$manualCont+1);
-			$workingBuffer = $postPrefix . substr($workingBuffer,$manualCont+1);
+		if ($continue != false) {
+			$workingString = substr($workingString,0,$continue+1);
 		} else {
-			$lastSpace = strrpos(trim($workingString), ' ');
+			$continue = strrpos(trim($workingString), ' ');
 			# Protect against bizarre inputs with no (or not enough) spaces
-			if ($lastSpace === false or $lastSpace <= 100) {
-				$lastSpace = $bufferSize - 2;
+			if ($continue === false or $continue <= 100) {
+				$continue = $bufferSize - 2;
 			}
-			$workingString = substr($workingString,0,$lastSpace+1) . $continueChar;
-			$workingBuffer = $postPrefix . substr($workingBuffer,$lastSpace+1);
+			$workingString = substr($workingString,0,$continue+1) . $continueChar;
 		}
 		
 		printOutputBlock($workingString, $postNum);
 		$postNum = $postNum + 1;
+		$workingBuffer = $postPrefix . ltrim(substr($workingBuffer,$continue+1));
 		$length = strlen($workingBuffer);
 	}
 	printOutputBlock($workingBuffer, $postNum);
