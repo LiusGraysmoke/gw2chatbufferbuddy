@@ -66,7 +66,7 @@ function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 	}
 	echo "> Say/Party</td>";
 	echo "<td align='center' style='padding: 20px;'><input type='submit' name='submit' value='Submit'></td>";
-	echo "<tr></table>";
+	echo "</tr></table>";
 	echo "</form><br>";
 	echo "</center>";
 }
