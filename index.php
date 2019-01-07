@@ -36,35 +36,35 @@ function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 	echo "</textarea>";
 	echo "<br>";
 	echo "<table><tr>";
-	echo "<td style='padding: 20px;'><label>Continue Marker: <select name='continue'>";
+	echo "<td style='padding: 20px;'><label for='continue'>Continue Marker: </label><select name='continue' id='continue'>";
 	foreach ($continueOpt as $opt) {
 		echo "<option value='" . $opt . "'";
 		if ($opt == $continueChar) echo " selected='selected'";
 		echo ">" . $opt . "</option>";
 	}
-	echo "</select></label><br><br>";
+	echo "</select><br><br>";
 	echo "Continue Marker at Start of New Line: ";
-	echo "<input type='radio' name='start' value='yes'";
+	echo "<input type='radio' name='start' value='yes' id='starty'";
 	if ($startFlag == 'yes') {
 		echo " checked";
 	}
-	echo "> Yes ";
-	echo "<input type='radio' name='start' value='no'";
+	echo "><label for='starty'> Yes </label>";
+	echo "<input type='radio' name='start' value='no' id='startn'";
 	if ($startFlag == 'no') {
 		echo " checked";
 	}
-	echo "> No <br><br>";
+	echo "><label for='startn'> No</label><br><br>";
 	echo "Post Format: ";
-	echo "<input type='radio' name='format' value='Emote'";
+	echo "<input type='radio' name='format' value='Emote' id='formate'";
 	if ($format == 'Emote') {
 		echo " checked";
 	}
-	echo "> Emote ";
-	echo "<input type='radio' name='format' value='Say'";
+	echo "><label for='formate'> Emote </label>";
+	echo "<input type='radio' name='format' value='Say' id='formats'";
 	if ($format == 'Say') {
 		echo " checked";
 	}
-	echo "> Say/Party</td>";
+	echo "><label for='formats'> Say/Party</label></td>";
 	echo "<td align='center' style='padding: 20px;'><input type='submit' name='submit' value='Submit'></td>";
 	echo "</tr></table>";
 	echo "</form><br>";
