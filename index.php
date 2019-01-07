@@ -123,7 +123,7 @@ if ($action == 'Submit') {
 	$workingBuffer = $chatBuffer;
 	$length = strlen($workingBuffer);
 	$workingString = substr($workingBuffer,0,$bufferSize);
-	$continue = strpos($workingString, $continueChar, 25);
+	$continue = strpos($workingString, $continueChar, min(25,strlen($workingString)-1));
 	
 	echo "<table>";
 	while ($length > $bufferSize or $continue != false) {
@@ -145,7 +145,7 @@ if ($action == 'Submit') {
 		$workingBuffer = $postPrefix . ltrim(substr($workingBuffer,$continue+1));
 		$length = strlen($workingBuffer);
 		$workingString = substr($workingBuffer,0,$bufferSize);
-		$continue = strpos($workingString, $continueChar, 25);
+		$continue = strpos($workingString, $continueChar, min(25,strlen($workingString)-1));
 	}
 	printOutputBlock($workingBuffer, $postNum);
 	echo "</table></center>";
