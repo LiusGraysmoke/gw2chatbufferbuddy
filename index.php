@@ -17,11 +17,12 @@ function copyToClipboard(textID) {
 </script>
 <div id="body">
 <center>
+<br>
 <h1 style='color:#ffffff;'>
 <table><tr>
 <td align='center'><img src="theme/media/gw2.png" alt="Guild Wars 2 " width="80%" height="80%"></td>
 <td> Chat Buffer Buddy</td>
-<tr></table>
+</tr></table>
 </h1>
 </center>
 <?php
