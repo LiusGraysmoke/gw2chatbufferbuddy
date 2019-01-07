@@ -117,15 +117,15 @@ if ($action == 'Submit') {
 
 	echo "<center><hr><h3>Perfectly Parsed Posts</h3>";
 	
+	# Prime the output loop with initial values
 	$postNum = 1;
 	$workingBuffer = $chatBuffer;
 	$length = strlen($workingBuffer);
+	$workingString = substr($workingBuffer,0,$bufferSize);
+	$continue = strpos($workingString, $continueChar, 25);
 	
 	echo "<table>";
-	while ($length > $bufferSize) {
-		$workingString = substr($workingBuffer,0,$bufferSize);
-		$continue = strpos($workingString, $continueChar, 25);
-		
+	while ($length > $bufferSize or $continue != false) {
 		# Allow a manual continue.
 		# Otherwise put continue marker after the last space in workingString.
 		if ($continue != false) {
@@ -143,6 +143,8 @@ if ($action == 'Submit') {
 		$postNum = $postNum + 1;
 		$workingBuffer = $postPrefix . ltrim(substr($workingBuffer,$continue+1));
 		$length = strlen($workingBuffer);
+		$workingString = substr($workingBuffer,0,$bufferSize);
+		$continue = strpos($workingString, $continueChar, 25);
 	}
 	printOutputBlock($workingBuffer, $postNum);
 	echo "</table></center>";
