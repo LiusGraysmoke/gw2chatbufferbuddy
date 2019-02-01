@@ -159,7 +159,7 @@ if ($action == 'Submit') {
 <div id="footer">
 <br><br>
 Author: Nihlus Duskstalker of  <a href="https://www.gw2tale.com/">The Tyrian Adventure League</a><br>
-(Version 1.2) Source code available on <a href="https://github.com/NihlusDuskstalker/gw2chatbufferbuddy">GitHub</a><br><br>
+(Version 1.3) Source code available on <a href="https://github.com/NihlusDuskstalker/gw2chatbufferbuddy">GitHub</a><br><br>
 <center>Guild Wars, Guild Wars 2, Heart of Thorns, Guild Wars 2: Path of Fire, ArenaNet, NCSOFT, the Interlocking NC Logo, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation.<br>
 Images owned by NCSOFT used in accordance with the <a href="https://www.guildwars2.com/en/legal/guild-wars-2-content-terms-of-use/">Guild Wars 2 Content Terms of Use</a>.</center>
 </div>

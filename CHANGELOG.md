@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3] - 2019-02-01
+### Changed
+- Added Eighth Note Continue Character
+- Convert string functions to multibyte variants
+
+### Fixed
+- HTML Formating
+- Resolve "Offset not contained in string warnings"
+
 ## [1.2] - 2019-01-07
 ### Changed
 - Layout and style of page
@@ -18,5 +27,6 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[1.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.2...v1.3
 [1.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.1...v1.2
 [1.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.0...v1.1
