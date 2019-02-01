@@ -26,9 +26,11 @@ function copyToClipboard(textID) {
 </h1>
 </center>
 <?php
+mb_internal_encoding("UTF-8");
+
 # Prints the main form for entering inputs and configuring output
 function printForm($chatBuffer, $continueChar, $startFlag, $format) {
-	$continueOpt = array('>', '+', '-');
+	$continueOpt = array('>', '+', '-', '♪');
 	echo "<center>";
 	echo "<form action='index.php' method='post'>";
 	echo "<textarea name='chat' rows='10' cols='100'>";
@@ -121,31 +123,31 @@ if ($action == 'Submit') {
 	# Prime the output loop with initial values
 	$postNum = 1;
 	$workingBuffer = $chatBuffer;
-	$length = strlen($workingBuffer);
-	$workingString = substr($workingBuffer,0,$bufferSize);
-	$continue = strpos($workingString, $continueChar, min(25,strlen($workingString)-1));
+	$length = mb_strlen($workingBuffer);
+	$workingString = mb_substr($workingBuffer,0,$bufferSize);
+	$continue = mb_strpos($workingString, $continueChar, min(25,mb_strlen($workingString)-1));
 	
 	echo "<table>";
 	while ($length > $bufferSize or $continue != false) {
 		# Allow a manual continue.
 		# Otherwise put continue marker after the last space in workingString.
 		if ($continue != false) {
-			$workingString = substr($workingString,0,$continue+1);
+			$workingString = mb_substr($workingString,0,$continue+1);
 		} else {
-			$continue = strrpos(trim($workingString), ' ');
+			$continue = mb_strrpos(trim($workingString), ' ');
 			# Protect against bizarre inputs with no (or not enough) spaces
 			if ($continue === false or $continue <= 100) {
 				$continue = $bufferSize - 2;
 			}
-			$workingString = substr($workingString,0,$continue+1) . $continueChar;
+			$workingString = mb_substr($workingString,0,$continue+1) . $continueChar;
 		}
 		
 		printOutputBlock($workingString, $postNum);
 		$postNum = $postNum + 1;
-		$workingBuffer = $postPrefix . ltrim(substr($workingBuffer,$continue+1));
-		$length = strlen($workingBuffer);
-		$workingString = substr($workingBuffer,0,$bufferSize);
-		$continue = strpos($workingString, $continueChar, min(25,strlen($workingString)-1));
+		$workingBuffer = $postPrefix . ltrim(mb_substr($workingBuffer,$continue+1));
+		$length = mb_strlen($workingBuffer);
+		$workingString = mb_substr($workingBuffer,0,$bufferSize);
+		$continue = mb_strpos($workingString, $continueChar, min(25,mb_strlen($workingString)-1));
 	}
 	printOutputBlock($workingBuffer, $postNum);
 	echo "</table></center>";
