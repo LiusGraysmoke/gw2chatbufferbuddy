@@ -75,12 +75,9 @@ function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 
 # Prints an output block, including the associated 'Copy to Clipboard' button
 function printOutputBlock( $text, $num ) {
-	echo "<tr><td>";
-	echo "<textarea id='post$num' rows='2' cols='100' readonly>";
-	echo $text;
-	echo "</textarea></td>";
-	echo "<td align='center' style='padding: 10px;'><input type='button' name='copy$num' value='Copy to Clipboard' onclick='copyToClipboard(\"post$num\")'>";
-	echo "</td></tr>";
+	echo "<tr><td align='center' style='padding: 10px;'><h4>" . $num . "</h4></td>";
+	echo "<td><textarea id='post$num' rows='2' cols='100' readonly>" . $text . "</textarea></td>";
+	echo "<td align='center' style='padding: 10px;'><input type='button' name='copy$num' value='Copy to Clipboard' onclick='copyToClipboard(\"post$num\")'></td></tr>";
 }
 
 function console_log( $data ){
