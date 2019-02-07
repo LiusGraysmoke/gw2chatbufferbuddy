@@ -31,46 +31,34 @@ mb_internal_encoding("UTF-8");
 # Prints the main form for entering inputs and configuring output
 function printForm($chatBuffer, $continueChar, $startFlag, $format) {
 	$continueOpt = array('>', '+', '-', '♪');
-	echo "<center>";
-	echo "<form action='index.php' method='post'>";
-	echo "<textarea name='chat' rows='10' cols='100'>";
-	echo $chatBuffer;
-	echo "</textarea>";
-	echo "<br>";
-	echo "<table><tr>";
-	echo "<td style='padding: 20px;'><label for='continue'>Continue Marker: </label><select name='continue' id='continue'>";
+	echo "<center><form action='index.php' method='post'>";
+	echo "<textarea name='chat' rows='10' cols='100'>" . $chatBuffer . "</textarea><br>";
+	echo "<table><tr><td style='padding: 20px;'><label for='continue'>Continue Marker: </label><select name='continue' id='continue'>";
 	foreach ($continueOpt as $opt) {
 		echo "<option value='" . $opt . "'";
 		if ($opt == $continueChar) echo " selected='selected'";
 		echo ">" . $opt . "</option>";
 	}
 	echo "</select><br><br>";
-	echo "Continue Marker at Start of New Line: ";
-	echo "<input type='radio' name='start' value='yes' id='starty'";
+	echo "Continue Marker at Start of New Line: <input type='radio' name='start' value='yes' id='starty'";
 	if ($startFlag == 'yes') {
 		echo " checked";
 	}
-	echo "><label for='starty'> Yes </label>";
-	echo "<input type='radio' name='start' value='no' id='startn'";
+	echo "><label for='starty'> Yes </label><input type='radio' name='start' value='no' id='startn'";
 	if ($startFlag == 'no') {
 		echo " checked";
 	}
 	echo "><label for='startn'> No</label><br><br>";
-	echo "Post Format: ";
-	echo "<input type='radio' name='format' value='Emote' id='formate'";
+	echo "Post Format: <input type='radio' name='format' value='Emote' id='formate'";
 	if ($format == 'Emote') {
 		echo " checked";
 	}
-	echo "><label for='formate'> Emote </label>";
-	echo "<input type='radio' name='format' value='Say' id='formats'";
+	echo "><label for='formate'> Emote </label><input type='radio' name='format' value='Say' id='formats'";
 	if ($format == 'Say') {
 		echo " checked";
 	}
 	echo "><label for='formats'> Say/Party</label></td>";
-	echo "<td align='center' style='padding: 20px;'><input type='submit' name='submit' value='Submit'></td>";
-	echo "</tr></table>";
-	echo "</form><br>";
-	echo "</center>";
+	echo "<td align='center' style='padding: 20px;'><input type='submit' name='submit' value='Submit'></td></tr></table></form><br></center>";
 }
 
 # Prints an output block, including the associated 'Copy to Clipboard' button
@@ -81,9 +69,7 @@ function printOutputBlock( $text, $num ) {
 }
 
 function console_log( $data ){
-  echo '<script>';
-  echo 'console.log('. json_encode( $data ) .')';
-  echo '</script>';
+  echo '<script>console.log('. json_encode( $data ) . ')</script>';
 }
 
 # Constants
