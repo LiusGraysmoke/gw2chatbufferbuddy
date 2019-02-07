@@ -117,40 +117,49 @@ if ($action == 'Submit') {
 	$chatBuffer = preg_replace('/\s+/', ' ', trim($chatBuffer));
 	
 	printForm($chatBuffer, $continueChar, $startFlag, $format);
-
-	echo "<center><hr><h3>Perfectly Parsed Posts</h3>";
 	
 	# Prime the output loop with initial values
 	$postNum = 1;
 	$workingBuffer = $chatBuffer;
 	$length = mb_strlen($workingBuffer);
 	$workingString = mb_substr($workingBuffer,0,$bufferSize);
-	$continue = mb_strpos($workingString, $continueChar, min(25,mb_strlen($workingString)-1));
 	
-	echo "<table>";
-	while ($length > $bufferSize or $continue != false) {
-		# Allow a manual continue.
-		# Otherwise put continue marker after the last space in workingString.
-		if ($continue != false) {
-			$workingString = mb_substr($workingString,0,$continue+1);
-		} else {
-			$continue = mb_strrpos(trim($workingString), ' ');
-			# Protect against bizarre inputs with no (or not enough) spaces
-			if ($continue === false or $continue <= 100) {
-				$continue = $bufferSize - 2;
-			}
-			$workingString = mb_substr($workingString,0,$continue+1) . $continueChar;
-		}
+	if ($length > 0) {
+		echo "<center><hr><h3>Perfectly Parsed Posts</h3>";
 		
-		printOutputBlock($workingString, $postNum);
-		$postNum = $postNum + 1;
-		$workingBuffer = $postPrefix . ltrim(mb_substr($workingBuffer,$continue+1));
-		$length = mb_strlen($workingBuffer);
-		$workingString = mb_substr($workingBuffer,0,$bufferSize);
 		$continue = mb_strpos($workingString, $continueChar, min(25,mb_strlen($workingString)-1));
+	
+		echo "<table>";
+		while ($length > $bufferSize or $continue != false) {
+			# Allow a manual continue.
+			# Otherwise put continue marker after the last space in workingString.
+			if ($continue != false) {
+				$workingString = mb_substr($workingString,0,$continue+1);
+			} else {
+				$continue = mb_strrpos(trim($workingString), ' ');
+				# Protect against bizarre inputs with no (or not enough) spaces
+				if ($continue === false or $continue <= 100) {
+					$continue = $bufferSize - 2;
+				}
+				$workingString = mb_substr($workingString,0,$continue+1) . $continueChar;
+			}
+			
+			printOutputBlock($workingString, $postNum);
+			$postNum = $postNum + 1;
+			$workingBuffer = $postPrefix . ltrim(mb_substr($workingBuffer,$continue+1));
+			$length = mb_strlen($workingBuffer);
+			$workingString = mb_substr($workingBuffer,0,$bufferSize);
+			if (mb_strlen($workingString) > 25) {
+				$continue = mb_strpos($workingString, $continueChar, 25);
+			} else {
+				$continue = false;
+			}
+		}
+		if ($workingBuffer != $postPrefix) {
+			printOutputBlock($workingBuffer, $postNum);
+		}
+		echo "</table></center>";
 	}
-	printOutputBlock($workingBuffer, $postNum);
-	echo "</table></center>";
 } else {
 	printForm($chatBuffer, $continueChar, $startFlag, $format);
 }
