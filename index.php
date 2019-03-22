@@ -80,20 +80,10 @@ $action = $_POST['submit'] ?? 'None';
 
 # Maintain any values prior to the submit function
 # otherwise set defaults for first run
-$chatBuffer = $_POST['chat'] ?? '/e ';
+$chatBuffer = $_POST['chat'] ?? '';
 $continueChar = $_POST['continue'] ?? '>';
 $format = $_POST['format'] ?? 'Emote';
 $startFlag = $_POST['start'] ?? 'yes';
-
-# Setup post prefix
-if ($format == 'Emote') {
-	$postPrefix = '/e ';
-} else {
-	$postPrefix = '';
-}
-if ($startFlag == 'yes') {
-	$postPrefix = $postPrefix . $continueChar . ' ';
-}
 
 if ($action == 'Submit') {
 	# Do some data cleansing on the chat buffer
@@ -101,11 +91,19 @@ if ($action == 'Submit') {
 	
 	printForm($chatBuffer, $continueChar, $startFlag, $format);
 	
-	# Prime the output loop with initial values
+	# Setup post prefix and prime the output loop with initial values
+	if ($format == 'Emote') {
+		$postPrefix = '/e ';
+	} else {
+		$postPrefix = '';
+	}
 	$postNum = 1;
-	$workingBuffer = $chatBuffer;
-	$length = mb_strlen($workingBuffer);
+	$length = mb_strlen($chatBuffer);
+	$workingBuffer = $postPrefix . $chatBuffer;
 	$workingString = mb_substr($workingBuffer,0,$bufferSize);
+	if ($startFlag == 'yes') {
+		$postPrefix = $postPrefix . $continueChar . ' ';
+	}
 	
 	if ($length > 0) {
 		echo "<center><hr><h3>Perfectly Parsed Posts</h3>";
