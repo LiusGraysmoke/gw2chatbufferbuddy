@@ -88,7 +88,10 @@ $startFlag = $_POST['start'] ?? 'yes';
 
 if ($action == 'Submit') {
 	# Do some data cleansing on the chat buffer
-	$chatBuffer = preg_replace('/\s+/', ' ', trim($chatBuffer));
+	$chatBuffer = mb_ereg_replace('\s+', ' ', trim($chatBuffer));
+	
+	# Convert double hyphens to em dashes
+	$chatBuffer = mb_ereg_replace('--', '—', $chatBuffer);
 	
 	printForm($chatBuffer, $continueChar, $startFlag, $format);
 	
