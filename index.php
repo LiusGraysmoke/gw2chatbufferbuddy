@@ -74,6 +74,7 @@ function console_log( $data ){
 
 # Constants
 $bufferSize = 199;
+$chatRegEx = '/^\/[deglmprstwy] /';
 
 # Get the form action
 $action = $_POST['submit'] ?? 'None';
@@ -99,7 +100,10 @@ if ($action == 'Submit') {
 	}
 	$postNum = 1;
 	$length = mb_strlen($chatBuffer);
-	$workingBuffer = $postPrefix . $chatBuffer;
+	$workingBuffer = $chatBuffer;
+	if( !preg_match($chatRegEx, $workingBuffer) ) {
+		$workingBuffer = $postPrefix . $chatBuffer;
+	}
 	$workingString = mb_substr($workingBuffer,0,$bufferSize);
 	if ($startFlag == 'yes') {
 		$postPrefix = $postPrefix . $continueChar . ' ';
@@ -127,7 +131,10 @@ if ($action == 'Submit') {
 			
 			printOutputBlock($workingString, $postNum);
 			$postNum = $postNum + 1;
-			$workingBuffer = $postPrefix . ltrim(mb_substr($workingBuffer,$continue+1));
+			$workingBuffer = ltrim(mb_substr($workingBuffer,$continue+1));
+			if( !preg_match($chatRegEx, $workingBuffer) ) {
+				$workingBuffer = $postPrefix . $workingBuffer;
+			}
 			$length = mb_strlen($workingBuffer);
 			$workingString = mb_substr($workingBuffer,0,$bufferSize);
 			if (mb_strlen($workingString) > 25) {
