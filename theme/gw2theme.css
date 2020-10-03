@@ -53,13 +53,13 @@ body:before,html.ie8:before{
 	z-index:-1
 }
 input[type=submit], input[type=button] {
-    padding:5px 15px;
-    background:#d6230c;
+	padding:5px 15px;
+	background:#d6230c;
 	color:#ffffff;
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+	border:0 none;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 input[type=submit]:hover, input[type=button]:hover {background:#aa0404}
 input[type=submit]:active, input[type=button]:active {transform: translateY(2px)}
