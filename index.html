@@ -83,9 +83,9 @@ function processInput() {
 		document.getElementById('postH').style.display = 'none'
 		document.getElementById('posts').style.display = 'none'
 	} else {
-		document.getElementById('postHR').style.display = 'block'
-		document.getElementById('postH').style.display = 'block'
-		document.getElementById('posts').style.display = 'block'
+		document.getElementById('postHR').style.display = 'flex'
+		document.getElementById('postH').style.display = 'flex'
+		document.getElementById('posts').style.display = 'flex'
 	}
 }
 
@@ -132,14 +132,14 @@ function copyToClipboard(textID) {
 function LightTheme() {
 	document.getElementById('gw2-css').href = 'theme/gw2theme.css'
 	document.getElementById('LightButton').style.display = 'none'
-	document.getElementById('DarkButton').style.display = 'block'
+	document.getElementById('DarkButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'light')
 }
 
 function DarkTheme() {
 	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css'
 	document.getElementById('DarkButton').style.display = 'none'
-	document.getElementById('LightButton').style.display = 'block'
+	document.getElementById('LightButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'dark')
 }
 
@@ -173,9 +173,11 @@ Continue Marker at Start of New Line: <input type='radio' name='start' value='ye
 Post Format: <input type='radio' name='format' value='Say' id='formats' onchange='processInput()' checked><label for='formats'> Say/Party/Squad </label><input type='radio' name='format' value='Emote' id='formate' onchange='processInput()'><label for='formate'> Emote </label>
 </tr>
 </table>
+</center>
 <hr id='postHR' style='display: none'>
-<h3 id='postH' style='display: none'>Perfectly Parsed Posts</h3>
-<table id='posts' style='display: none'></table>
+<center>
+<h3 id='postH' style='justify-content:center; display:none'>Perfectly Parsed Posts</h3>
+<table id='posts' style='justify-content:center;display:none'></table>
 </center>
 </div>
 <div id="footer">
