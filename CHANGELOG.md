@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0] - 2020-10-02
+### Changed
+- Rewrote entire application in Javascript
+  - Program parses as you type with no need to submit the form
+  - Program parses faster
+- Dark Mode Added
+- Changed method of manual break from continuation character to chat command
+
+### Fixed
+- Using hyphens in your text while using hyphen as your continuation character will no longer break your posts
+
 ## [1.4] - 2019-03-21
 ### Changed
 - Remove the need to have the initial /e for emote posting
@@ -39,6 +50,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.0]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.4...v2.0
 [1.4]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.3...v1.4
 [1.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.2...v1.3
 [1.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.1...v1.2
