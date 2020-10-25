@@ -24,33 +24,48 @@ function processInput() {
 	var postPrefix = ''
 	var pnum = 0
 	
+	/*
+	Cleanup Input
+	1) Remove whitespace from the start
+	2) Remove whitespace from the end
+	3) Replace all whitespace (double space, tab, newline) with a single space
+	4) Convert double hyphen to em dash
+	*/
 	workingBuffer = workingBuffer.trimStart().trimEnd().replace(/\s+/g, ' ').replace(/--/g, '—')
 	
+	// Set post prefix to /e if post format is 'Emote'
 	if (formate) {
 		postPrefix = '/e '
+		// Add post prefix to front of buffer as long as one isn't there
 		if (!prefixRegEx.test(workingBuffer) && workingBuffer.length > 0) {
 			workingBuffer = postPrefix + workingBuffer
 		}
 	}
+	
+	// Add continue marker to post prefix if enabled
 	if (starty) {
 		postPrefix = postPrefix + contChar + ' '
 	}
+	
 	while (workingBuffer.length > 0) {
 		const chatRegEx = new RegExp(/\/[deglmprstwy] /g)
 		var workingString
 		var contLoc = 0
 		pnum++
+		
 		// Add row to post table if needed
 		if (pnum > postTable.rows.length) {
 			addPostRow('posts')
 		}
 		
+		// Look for a manual continue in buffer (eg. /s or /e)
 		chatRegEx.test(workingBuffer.substr(1,bufferSize+1))
 		contLoc = chatRegEx.lastIndex - 3
 		
-		// If workingBuffer is larger than max buffer size, split post
+		// If workingBuffer is larger than max buffer size (or manual continue found), split post
 		if (workingBuffer.length > bufferSize || contLoc > 0) {
 			workingString = workingBuffer.substr(0,bufferSize).trimEnd()
+			// If manual continue exists, split post there, else split at last whitespace in working string
 			if (contLoc > 0) {
 				workingString = workingString.substr(0,contLoc+1) + contChar
 				workingBuffer = workingBuffer.substr(contLoc+1).trimStart()
@@ -67,8 +82,10 @@ function processInput() {
 			workingString = workingBuffer
 			workingBuffer = ''
 		}
+		// Assign parsed string to parsed post text box
 		document.getElementById('post' + pnum.toString()).value = workingString
 	}
+	// Remove any unused post table rows from output
 	while (postTable.rows.length > pnum) {
 		postTable.deleteRow(-1)
 	}
@@ -84,19 +101,22 @@ function processInput() {
 	}
 }
 
-// Add new post field
+// Add new parsed post line
 function addPostRow(tableID) {
 	var table = document.getElementById(tableID)
 	
+	// Add new post row
 	var rowCount = table.rows.length
 	var row = table.insertRow(rowCount)
 	var newRow = rowCount + 1
 	
+	// Add column 1: Post Number
 	var cell1 = row.insertCell(0)
 	cell1.style.align = 'center'
 	cell1.style.padding = '10px'
 	cell1.innerHTML = '<h4>' + newRow.toString() + '</h4>'
 	
+	// Add column 2: Post Text Box
 	var cell2 = row.insertCell(1)
 	var element2 = document.createElement('textarea')
 	element2.id = 'post' + newRow.toString()
@@ -105,6 +125,7 @@ function addPostRow(tableID) {
 	element2.readOnly = true
 	cell2.appendChild(element2)
 	
+	// Add column 3: 'Copy to Clipboard' Button
 	var cell3 = row.insertCell(2)
 	cell3.style.align = 'center'
 	cell3.style.padding = '10px'
@@ -121,31 +142,34 @@ function copyToClipboard(textID) {
 	var copyText = document.getElementById(textID)
 	copyText.select()
 	document.execCommand('copy')
-	//alert("Text Copied!")
 }
 
-function LightTheme() {
+// Set Light Mode
+function LightMode() {
 	document.getElementById('gw2-css').href = 'theme/gw2theme.css'
 	document.getElementById('LightButton').style.display = 'none'
 	document.getElementById('DarkButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'light')
 }
 
-function DarkTheme() {
+// Set Dark Mode
+function DarkMode() {
 	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css'
 	document.getElementById('DarkButton').style.display = 'none'
 	document.getElementById('LightButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'dark')
 }
 
+// Execute on page load
 function start() {
+	// Set Dark Mode if it's saved in Session Storage. Maintains Dark Mode on page refreshes.
 	if (sessionStorage.getItem('mode') == 'dark') {
-		DarkTheme()
+		DarkMode()
 	}
 }
 </script>
 <div id="body">
-<input type='button' id='LightButton' name='Light' value='Light' style='position:absolute; top:5px; right:5px; display:none' onclick='LightTheme()'> <input type='button' id='DarkButton' name='Dark' value='Dark' style='position:absolute; top:5px; right:5px; color:#41444b; display:block' onclick='DarkTheme()'>
+<input type='button' id='LightButton' name='Light' value='Light' style='position:absolute; top:5px; right:5px; display:none' onclick='LightMode()'> <input type='button' id='DarkButton' name='Dark' value='Dark' style='position:absolute; top:5px; right:5px; color:#41444b; display:block' onclick='DarkMode()'>
 <center>
 <br>
 <h1 style='color:#ffffff;'>
