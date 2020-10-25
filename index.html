@@ -16,7 +16,6 @@
 function processInput() {
 	const bufferSize = 199
 	const prefixRegEx = new RegExp(/^\/[deglmprstwy] /)
-	const chatRegEx = new RegExp(/\/[deglmprstwy] /g)
 	var workingBuffer = document.getElementById('chat').value.toString()
 	var postTable = document.getElementById('posts')
 	var contChar = document.getElementById('continue').value
@@ -37,6 +36,7 @@ function processInput() {
 		postPrefix = postPrefix + contChar + ' '
 	}
 	while (workingBuffer.length > 0) {
+		const chatRegEx = new RegExp(/\/[deglmprstwy] /g)
 		var workingString
 		var contLoc = 0
 		var skip = 1
