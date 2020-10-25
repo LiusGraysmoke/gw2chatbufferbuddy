@@ -39,8 +39,6 @@ function processInput() {
 		const chatRegEx = new RegExp(/\/[deglmprstwy] /g)
 		var workingString
 		var contLoc = 0
-		var skip = 1
-		var currPostPrefix = postPrefix
 		pnum++
 		// Add row to post table if needed
 		if (pnum > postTable.rows.length) {
@@ -54,20 +52,17 @@ function processInput() {
 		if (workingBuffer.length > bufferSize || contLoc > 0) {
 			workingString = workingBuffer.substr(0,bufferSize).trimEnd()
 			if (contLoc > 0) {
-				skip = 3
-				currPostPrefix = workingBuffer.substr(chatRegEx.lastIndex-2,3)
-				if (starty) {
-					currPostPrefix = currPostPrefix + contChar + ' '
-				}
+				workingString = workingString.substr(0,contLoc+1) + contChar
+				workingBuffer = workingBuffer.substr(contLoc+1).trimStart()
 			} else {
 				contLoc = workingString.lastIndexOf(' ') // Search for last space. Use this as split point.
 				// Protect against bizarre inputs with no (or not enough) spaces
 				if (contLoc <= 25) {
 					contLoc = bufferSize - 1
 				}
+				workingString = workingString.substr(0,contLoc+1) + contChar
+				workingBuffer = postPrefix + workingBuffer.substr(contLoc+1).trimStart()
 			}
-			workingString = workingString.substr(0,contLoc+1) + contChar
-			workingBuffer = currPostPrefix + workingBuffer.substr(contLoc+skip).trimStart()
 		} else {
 			workingString = workingBuffer
 			workingBuffer = ''
