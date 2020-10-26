@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1] - 2020-10-26
+### Changed
+- Remove continue marker at start of manual continues
+- Code formatting
+- Added additional code comments
+
+### Fixed
+- Alignment issue in Chromium-based Browsers
+- Bug in manual continues
+
 ## [2.0] - 2020-10-02
 ### Changed
 - Rewrote entire application in Javascript
@@ -50,6 +60,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.0...v2.1
 [2.0]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.4...v2.0
 [1.4]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.3...v1.4
 [1.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.2...v1.3
