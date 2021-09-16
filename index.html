@@ -64,7 +64,7 @@ function processInput() {
 		
 		// If workingBuffer is larger than max buffer size (or manual continue found), split post
 		if (workingBuffer.length > bufferSize || contLoc > 0) {
-			workingString = workingBuffer.substr(0,bufferSize).trimEnd()
+			workingString = workingBuffer.substr(0,bufferSize+1-contChar.length).trimEnd()
 			// If manual continue exists, split post there, else split at last whitespace in working string
 			if (contLoc > 0) {
 				workingString = workingString.substr(0,contLoc+1) + contChar
@@ -185,7 +185,7 @@ function start() {
 <table>
 <tr>
 <td style='padding: 20px;'>
-<label for='continue'>Continue Marker: </label><select name='continue' id='continue' onchange='processInput()'><option value='>' selected='selected'>></option><option value='+'>+</option><option value='-'>-</option><option value='♪'>♪</option></select>
+<label for='continue'>Continue Marker: </label><select name='continue' id='continue' onchange='processInput()'><option value='>' selected='selected'>></option><option value='+'>+</option><option value='-'>-</option><option value='--'>--</option><option value='♪'>♪</option></select>
 <br><br>
 Continue Marker at Start of New Line: <input type='radio' name='start' value='yes' onchange='processInput()' id='starty' checked><label for='starty'> Yes </label><input type='radio' name='start' value='no' id='startn' onchange='processInput()'><label for='startn'> No </label>
 <br><br>
