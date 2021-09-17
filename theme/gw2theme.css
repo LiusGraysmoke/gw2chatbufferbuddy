@@ -1,4 +1,8 @@
-html {background:#FFF}
+html {
+	height: 100%;
+	background: #FFF;
+	color: #000;
+}
 
 @font-face{font-family:'CronosPro';src:url('fonts/cronospro-regular-webfont.eot');src:url('fonts/cronospro-regular-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/cronospro-regular-webfont.woff') format('woff'),url('fonts/cronospro-regular-webfont.ttf') format('truetype'),url('fonts/cronospro-regular-webfont.svg#CronosProRegular') format('svg');font-weight:normal;font-style:normal}
 @font-face{font-family:'CronosPro';src:url('fonts/cronospro-semibold-webfont.eot');src:url('fonts/cronospro-semibold-webfont.eot?#iefix') format('embedded-opentype'),url('fonts/cronospro-semibold-webfont.woff') format('woff'),url('fonts/cronospro-semibold-webfont.ttf') format('truetype'),url('fonts/cronospro-semibold-webfont.svg#CronosProSemibold') format('svg');font-weight:bold;font-style:normal}
@@ -71,6 +75,8 @@ textarea {
 	border-radius: 0;
 	color: #505050;
 	padding: 5px 5px 5px 5px;
+	background: #FFF;
+	color: #000;
 }
 textarea:focus {
 	outline: none !important;
