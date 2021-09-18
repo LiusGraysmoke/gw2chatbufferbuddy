@@ -174,19 +174,19 @@ function start() {
 }
 </script>
 <div id='page' style='display:flex; flex-direction:column; height:100vh'>
-<div id='topFrame'>
+<div id='header' style='display:table; height:140px; width:100%'>
 <input type='button' id='LightButton' name='Light' value='Light' style='position:absolute; top:5px; right:5px; display:none' onclick='LightMode()'> <input type='button' id='DarkButton' name='Dark' value='Dark' style='position:absolute; top:5px; right:5px; color:#000000; display:block' onclick='DarkMode()'>
-<center>
 <br>
-<h1 style='color:#ffffff;'>
-<table><tr>
-<td align='center'><img src="theme/media/gw2.png" alt="Guild Wars 2 " width="80%" height="80%"></td>
-<td> Chat Buffer Buddy</td>
-</tr></table>
-</h1>
-</center>
+<img src="theme/media/gw2.png" alt="Guild Wars 2 " style='position:absolute; right:50%; margin-right:275px; width:225px; height:auto; z-index:0'>
+<div id='headerText' style='display:table-cell; vertical-align:middle'>
 <center>
-<textarea name='chat' id='chat' rows='10' cols='100' oninput='processInput()'></textarea>
+<h1 style='color:#ffffff;'>Chat Buffer Buddy</h1>
+</center>
+</div>
+</div>
+<div id='topFrame'>
+<center>
+<textarea name='chat' id='chat' rows='10' cols='100' oninput='processInput()' style='position:relative; z-index:1'></textarea>
 <br>
 <table>
 <tr>
