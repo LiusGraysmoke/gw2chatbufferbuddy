@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel='stylesheet' id='reset-css'  href='theme/reset.css' type='text/css' media='all' />
-<link rel='stylesheet' id='gw2-css'  href='theme/gw2theme.css' type='text/css' media='all' />
+<link rel='stylesheet' id='gw2-css'  href='theme/gw2theme.css?v=2.2' type='text/css' media='all' />
 <title>Guild Wars 2 Chat Buffer Buddy</title>
 </head>
 <body onload='start()'>
@@ -151,7 +151,7 @@ function copyToClipboard(textID) {
 
 // Set Light Mode
 function LightMode() {
-	document.getElementById('gw2-css').href = 'theme/gw2theme.css'
+	document.getElementById('gw2-css').href = 'theme/gw2theme.css?v=2.2'
 	document.getElementById('LightButton').style.display = 'none'
 	document.getElementById('DarkButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'light')
@@ -159,7 +159,7 @@ function LightMode() {
 
 // Set Dark Mode
 function DarkMode() {
-	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css'
+	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css?v=2.2'
 	document.getElementById('DarkButton').style.display = 'none'
 	document.getElementById('LightButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'dark')
