@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2] - 2021-09-18
+### Changed
+- Changed Dark Mode button text to black for readability
+- New Dark Mode header (Thanks Rath!)
+- Added -- as a continue marker
+- Made it so parsed posts are independently scrollable
+- Added /c as a generic manual break
+- Shrunk the height of the header
+
+### Fixed
+- Changed parsing activation from onkeyup to oninput to fix edge case errors
+
 ## [2.1] - 2020-10-26
 ### Changed
 - Remove continue marker at start of manual continues
@@ -60,6 +72,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.1...v2.2
 [2.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.0...v2.1
 [2.0]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.4...v2.0
 [1.4]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.3...v1.4
