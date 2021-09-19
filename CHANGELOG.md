@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.3] - 2021-09-19
+### Changed
+- Set version query on CSS files to force refresh
+- Improved footer appearance
+
 ## [2.2] - 2021-09-18
 ### Changed
 - Changed Dark Mode button text to black for readability
@@ -72,6 +77,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.2...v2.3
 [2.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.1...v2.2
 [2.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.0...v2.1
 [2.0]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v1.4...v2.0

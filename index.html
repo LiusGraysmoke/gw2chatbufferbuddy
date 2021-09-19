@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel='stylesheet' id='reset-css'  href='theme/reset.css' type='text/css' media='all' />
-<link rel='stylesheet' id='gw2-css'  href='theme/gw2theme.css?v=2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='gw2-css'  href='theme/gw2theme.css?v=2.3' type='text/css' media='all' />
 <title>Guild Wars 2 Chat Buffer Buddy</title>
 </head>
 <body onload='start()'>
@@ -151,7 +151,7 @@ function copyToClipboard(textID) {
 
 // Set Light Mode
 function LightMode() {
-	document.getElementById('gw2-css').href = 'theme/gw2theme.css?v=2.2'
+	document.getElementById('gw2-css').href = 'theme/gw2theme.css?v=2.3'
 	document.getElementById('LightButton').style.display = 'none'
 	document.getElementById('DarkButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'light')
@@ -159,7 +159,7 @@ function LightMode() {
 
 // Set Dark Mode
 function DarkMode() {
-	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css?v=2.2'
+	document.getElementById('gw2-css').href = 'theme/gw2darktheme.css?v=2.3'
 	document.getElementById('DarkButton').style.display = 'none'
 	document.getElementById('LightButton').style.display = 'flex'
 	sessionStorage.setItem('mode', 'dark')
@@ -212,7 +212,7 @@ Post Format: <input type='radio' name='format' value='Say' id='formats' onchange
 <br><br>
 <div id='footerText' style='margin:5px'>
 Author: Lius Graysmoke of Tarnished Coast (US)<br>
-(Version 2.2) Source code available on <a href="https://github.com/NihlusDuskstalker/gw2chatbufferbuddy">GitHub</a><br><br>
+(Version 2.3) Source code available on <a href="https://github.com/NihlusDuskstalker/gw2chatbufferbuddy">GitHub</a><br><br>
 <center>Guild Wars, Guild Wars 2, Heart of Thorns, Guild Wars 2: Path of Fire, ArenaNet, NCSOFT, the Interlocking NC Logo, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation.<br>
 Images owned by NCSOFT used in accordance with the <a href="https://www.guildwars2.com/en/legal/guild-wars-2-content-terms-of-use/">Guild Wars 2 Content Terms of Use</a>.</center>
 </div>
