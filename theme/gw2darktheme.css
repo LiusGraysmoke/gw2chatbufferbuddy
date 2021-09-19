@@ -84,4 +84,7 @@ textarea:focus {
 	border-color: #b3b3b3;
 	box-shadow: 0 0 10px #b3b3b3;
 }
-div[id=footer] {font-size:10px;}
+div[id=footer] {
+	font-size:10px;
+	background-image:url('media/footer-dark.jpg');
+}
