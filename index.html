@@ -193,16 +193,13 @@ function start() {
 <center>
 <textarea name='chat' id='chat' rows='10' cols='100' oninput='processInput()' style='position:relative; z-index:1'></textarea>
 <br>
+<div id='options' style='padding: 10px'>
 <table>
-<tr>
-<td style='padding: 20px;'>
-<label for='continue'>Continue Marker: </label><select name='continue' id='continue' onchange='processInput()'><option value='>' selected='selected'>></option><option value='+'>+</option><option value='-'>-</option><option value='--'>--</option><option value='♪'>♪</option></select>
-<br><br>
-Continue Marker at Start of New Line: <input type='radio' name='start' value='yes' onchange='processInput()' id='starty' checked><label for='starty'> Yes </label><input type='radio' name='start' value='no' id='startn' onchange='processInput()'><label for='startn'> No </label>
-<br><br>
-Post Format: <input type='radio' name='format' value='Say' id='formats' onchange='processInput()' checked><label for='formats'> Say/Party/Squad </label><input type='radio' name='format' value='Emote' id='formate' onchange='processInput()'><label for='formate'> Emote </label>
-</tr>
+<tr><td><label for='continue'>Continue Marker: </label><select name='continue' id='continue' onchange='processInput()'><option value='>' selected='selected'>></option><option value='+'>+</option><option value='-'>-</option><option value='--'>--</option><option value='♪'>♪</option></select></td></tr>
+<tr><td>Continue Marker at Start of New Line: <input type='radio' name='start' value='yes' onchange='processInput()' id='starty' checked><label for='starty'> Yes </label><input type='radio' name='start' value='no' id='startn' onchange='processInput()'><label for='startn'> No </label></td></tr>
+<tr><td>Post Format: <input type='radio' name='format' value='Say' id='formats' onchange='processInput()' checked><label for='formats'> Say/Party/Squad </label><input type='radio' name='format' value='Emote' id='formate' onchange='processInput()'><label for='formate'> Emote </label></td></tr>
 </table>
+</div>
 </center>
 <hr id='postHR' style='display: none'>
 </div>

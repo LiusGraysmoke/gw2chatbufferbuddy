@@ -68,7 +68,8 @@ input[type=submit], input[type=button] {
 input[type=submit]:hover, input[type=button]:hover {background:#aa0404}
 input[type=submit]:active, input[type=button]:active {transform: translateY(2px)}
 td {
-	vertical-align:middle;
+	vertical-align: middle;
+	padding: 5px;
 }
 textarea {
 	border-color: #d2d2d2;
