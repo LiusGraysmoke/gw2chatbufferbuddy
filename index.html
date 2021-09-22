@@ -167,8 +167,13 @@ function DarkMode() {
 
 // Execute on page load
 function start() {
-	// Set Dark Mode if it's saved in Session Storage. Maintains Dark Mode on page refreshes.
-	if (sessionStorage.getItem('mode') == 'dark') {
+	// Set Dark Mode if it's the OS setting om initial page load.
+	// Also set Dark Mode if it's saved in Session Storage. Maintains Dark Mode on page refreshes.
+	if (sessionStorage.getItem('mode') == null) {
+		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			DarkMode()
+		}
+	} else if (sessionStorage.getItem('mode') == 'dark') {
 		DarkMode()
 	}
 }
