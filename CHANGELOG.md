@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.4] - 2021-09-22
+### Changed
+- Updaste trademark
+- Set Dark Mode on initial load if set in OS
+- Shrink spacing between options
+
 ## [2.3] - 2021-09-19
 ### Changed
 - Set version query on CSS files to force refresh
@@ -77,6 +83,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.4]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.3...v2.4
 [2.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.2...v2.3
 [2.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.1...v2.2
 [2.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.0...v2.1
