@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.4.1] - 2022-12-19
+### Changed
+- Update GitHub account to LiusGraysmoke
+
 ## [2.4] - 2021-09-22
 ### Changed
 - Updaste trademark
@@ -83,6 +87,7 @@
 ## 1.0 - 2018-12-26
 - Initial release
 
+[2.4.1]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.4...v2.4.1
 [2.4]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.3...v2.4
 [2.3]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.2...v2.3
 [2.2]: https://github.com/NihlusDuskstalker/gw2chatbufferbuddy/compare/v2.1...v2.2
