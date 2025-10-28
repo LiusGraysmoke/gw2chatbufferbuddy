@@ -13,6 +13,6 @@ The purpose of this tool is to provide a lightweight means of converting large b
 You can manually force a new line by adding /c or a one-letter GW2 Chat Command (/e, /s, /p, etc) into the chat window. This was largely included for readability reasons when the program cuts off posts in awkward locations, like near transitions between action and speech, but also lets one format the parsing as they see fit. /c breaks the text normally. Other manual breaks will start the next block of text with the command you used.
 
 ## Notes
-Legal Disclaimer: Guild Wars, Guild Wars 2, Heart of Thorns, Guild Wars 2: Path of Fire, ArenaNet, NCSOFT, the Interlocking NC Logo, and all associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation.
+Legal Disclaimer: © ArenaNet LLC. All rights reserved. NCSOFT, ArenaNet, Guild Wars, Guild Wars 2, GW2, Heart of Thorns, Path of Fire, End of Dragons, Secrets of the Obscure, Janthir Wilds, Visions of Eternity, and all associated logos, designs, and composite marks are trademarks or registered trademarks of NCSOFT Corporation. All other trademarks are the property of their respective owners.
 
 Images owned by NCSOFT used in accordance with the [Guild Wars 2 Content Terms of Use](https://www.guildwars2.com/en/legal/guild-wars-2-content-terms-of-use/).
